@@ -11,13 +11,13 @@ pipeline{
                  git 'https://github.com/RayItern/JUNECLASSPRO1.git'
               }
           }
-          stage('Compile'){
+          stage('Compile1'){
               steps{
                   echo 'compiling..'
                   sh 'mvn compile'
 	      }
           }
-          stage('CodeReview'){
+          stage('CodeReview1'){
               steps{
 		    
 		  echo 'codeReview'
