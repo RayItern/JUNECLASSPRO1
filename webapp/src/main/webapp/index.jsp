@@ -33,7 +33,7 @@
             <% out.println("Hello my new 2026 students!"); %>
         </h1>
         <p>Welcome to Power DevOps Training Platform for Angels 🚀</p>
-        <p>Learn, Build, Deploy, and Scale with Confidence.</p>
+        <p>Learn, Build, Deploy, and Scale with Confidence by everyone.</p>
     </div>
 </body>
 </html>
