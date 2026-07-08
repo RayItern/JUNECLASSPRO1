@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'myjava'
-        maven 'mymaven'
+        jdk 'rayjava'
+        maven 'raymaven'
     }
 
     stages {
@@ -18,7 +18,7 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compiling code...'
-                sh 'mvn clean compile'
+                sh ' clean compile'
             }
         }
 
