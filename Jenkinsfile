@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'rayjava'
-        maven 'raymaven'
+        jdk 'myjava'
+        maven 'mymaven'
     }
 
     stages {
