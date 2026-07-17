@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>DevOps Training 2026</title>
+    <title>DevOps Training 2026 to 2027</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
 <body>
     <div class="container">
         <h1>
-            <% out.println("Hello my new 2026 students!"); %>
+            <% out.println("Hello my new 2026 and 2027  students!"); %>
         </h1>
         <p>Welcome to Power DevOps Training Platform for Angels 🚀nd Kings</p>
         <p>Learn, Build, Deploy, and Scale with Confidence by everyone.</p>
