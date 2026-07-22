@@ -5,222 +5,134 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cloud DevOps Training Center</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Uber DevOps CI/CD Pipeline</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-overflow-x:hidden;
-color:white;
-
+    background:linear-gradient(135deg,#000,#1d1d1d,#2f2f2f);
+    color:white;
 }
 
-/* Header */
-
 header{
-
-background:rgba(0,0,0,.45);
-padding:20px;
-text-align:center;
-box-shadow:0px 5px 15px rgba(0,0,0,.4);
-
+    background:#111;
+    padding:25px;
+    text-align:center;
+    border-bottom:4px solid #00ff99;
 }
 
 header h1{
-
-font-size:42px;
-color:#00ffd5;
-
+    font-size:42px;
+    color:#00ff99;
 }
 
 header p{
-
-font-size:18px;
-color:#f4f4f4;
-
+    font-size:18px;
+    margin-top:10px;
 }
 
-/* Dashboard */
+.container{
+    width:90%;
+    margin:auto;
+    padding:40px;
+}
 
-.dashboard{
+.pipeline{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:15px;
+    margin-top:40px;
+}
 
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-padding:25px;
+.stage{
+    background:#222;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.4s;
+    border:2px solid #333;
+}
 
+.stage:hover{
+    transform:scale(1.08);
+    border-color:#00ff99;
+    box-shadow:0px 0px 20px #00ff99;
+}
+
+.stage h3{
+    color:#00ff99;
+    margin-bottom:10px;
+}
+
+.info{
+    margin-top:50px;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
 .card{
-
-background:linear-gradient(145deg,#3b82f6,#2563eb);
-padding:20px;
-border-radius:15px;
-text-align:center;
-box-shadow:0px 5px 20px rgba(0,0,0,.4);
-transition:.5s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-background:linear-gradient(145deg,#06b6d4,#0ea5e9);
-
+    flex:1;
+    background:#222;
+    padding:25px;
+    border-radius:10px;
+    min-width:300px;
 }
 
 .card h2{
-
-font-size:32px;
-
+    color:#00ff99;
+    margin-bottom:15px;
 }
 
-/* Classroom */
-
-.classroom{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-padding:30px;
-
+.card ul{
+    line-height:2;
 }
 
-.student{
-
-background:white;
-color:#222;
-border-radius:20px;
-padding:20px;
-box-shadow:0px 10px 20px rgba(0,0,0,.4);
-transition:.5s;
-
+.footer{
+    margin-top:60px;
+    text-align:center;
+    padding:25px;
+    background:#111;
+    border-top:3px solid #00ff99;
 }
 
-.student:hover{
-
-transform:scale(1.05);
-
+.success{
+    margin-top:40px;
+    text-align:center;
+    font-size:28px;
+    color:#00ff99;
+    font-weight:bold;
 }
 
-.student h3{
-
-color:#2563eb;
-
+.version{
+    margin-top:20px;
+    text-align:center;
+    font-size:20px;
 }
 
-/* Computer */
-
-.monitor{
-
-margin-top:20px;
-height:180px;
-background:#111827;
-border:8px solid #555;
-border-radius:10px;
-position:relative;
-overflow:hidden;
-
+.button{
+    margin-top:30px;
+    text-align:center;
 }
 
-.screen{
-
-position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(45deg,#0ea5e9,#14b8a6,#10b981);
-animation:screenGlow 5s infinite;
-
+.button a{
+    text-decoration:none;
+    background:#00ff99;
+    color:black;
+    padding:15px 35px;
+    border-radius:40px;
+    font-weight:bold;
 }
 
-@keyframes screenGlow{
-
-0%{filter:hue-rotate(0deg);}
-50%{filter:hue-rotate(120deg);}
-100%{filter:hue-rotate(360deg);}
-
+.button a:hover{
+    background:white;
 }
-
-.terminal{
-
-position:absolute;
-padding:15px;
-font-size:14px;
-font-family:monospace;
-color:#00ff7f;
-line-height:1.7;
-
-}
-
-/* Footer */
-
-footer{
-
-text-align:center;
-padding:25px;
-background:#111827;
-margin-top:30px;
-
-}
-
-.badges{
-
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
-margin-top:20px;
-
-}
-
-.badge{
-
-padding:12px 20px;
-border-radius:30px;
-font-weight:bold;
-color:white;
-animation:bounce 2s infinite;
-
-}
-
-.badge:nth-child(1){background:#ff9800;}
-.badge:nth-child(2){background:#2196f3;}
-.badge:nth-child(3){background:#4caf50;}
-.badge:nth-child(4){background:#e91e63;}
-.badge:nth-child(5){background:#673ab7;}
-.badge:nth-child(6){background:#009688;}
-
-@keyframes bounce{
-
-50%{transform:translateY(-8px);}
-
-}
-
-/* Responsive */
-
-@media(max-width:900px){
-
-.dashboard{
-grid-template-columns:repeat(2,1fr);
-}
-
-.classroom{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 
 </head>
@@ -229,67 +141,138 @@ grid-template-columns:1fr;
 
 <header>
 
-<h1>☁️ Cloud DevOps Training Classroom</h1>
+<h1>UBER APPLICATION</h1>
 
-<p>Students Building Real-World DevOps Projects</p>
+<p>Enterprise DevOps CI/CD Automation Pipeline</p>
+
+<p>Powered by GitHub | Jenkins | Maven | SonarQube | Docker | Kubernetes | Terraform | Ansible | AWS</p>
 
 </header>
 
-<div class="dashboard">
+<div class="container">
+
+<div class="pipeline">
+
+<div class="stage">
+<h3>1</h3>
+<p>Developer Commit</p>
+</div>
+
+<div class="stage">
+<h3>2</h3>
+<p>GitHub Webhook</p>
+</div>
+
+<div class="stage">
+<h3>3</h3>
+<p>Jenkins Pipeline</p>
+</div>
+
+<div class="stage">
+<h3>4</h3>
+<p>Build & Test</p>
+</div>
+
+<div class="stage">
+<h3>5</h3>
+<p>SonarQube Scan</p>
+</div>
+
+<div class="stage">
+<h3>6</h3>
+<p>Docker Image</p>
+</div>
+
+<div class="stage">
+<h3>7</h3>
+<p>Kubernetes Deploy</p>
+</div>
+
+<div class="stage">
+<h3>8</h3>
+<p>Production</p>
+</div>
+
+</div>
+
+<div class="success">
+
+✅ Deployment Successful
+
+</div>
+
+<div class="version">
+
+Current Version : <strong>v3.5.0</strong><br><br>
+
+Deployment Time :
+<%= new java.util.Date() %>
+
+</div>
+
+<div class="button">
+
+<a href="#">Book Your Ride</a>
+
+</div>
+
+<div class="info">
 
 <div class="card">
-<h2>25</h2>
-<p>Students</p>
+
+<h2>CI/CD Pipeline</h2>
+
+<ul>
+<li>✔ Source Code: GitHub</li>
+<li>✔ Continuous Integration: Jenkins</li>
+<li>✔ Maven Build Automation</li>
+<li>✔ Unit Testing</li>
+<li>✔ SonarQube Code Quality</li>
+<li>✔ Docker Image Creation</li>
+<li>✔ Push Image to Docker Hub</li>
+<li>✔ Kubernetes Rolling Update</li>
+<li>✔ Automated Health Checks</li>
+
+</ul>
+
 </div>
 
 <div class="card">
-<h2>12</h2>
-<p>Projects</p>
+
+<h2>Cloud Infrastructure</h2>
+
+<ul>
+
+<li>☁ AWS EC2</li>
+<li>☁ AWS VPC</li>
+<li>☁ Application Load Balancer</li>
+<li>☁ Auto Scaling Group</li>
+<li>☁ Amazon ECR</li>
+<li>☁ Terraform Provisioning</li>
+<li>☁ Ansible Configuration</li>
+<li>☁ Prometheus Monitoring</li>
+<li>☁ Grafana Dashboard</li>
+
+</ul>
+
 </div>
 
 <div class="card">
-<h2>98%</h2>
-<p>Pipeline Success</p>
-</div>
 
-<div class="card">
-<h2>15</h2>
-<p>Containers Running</p>
-</div>
+<h2>Deployment Status</h2>
 
-</div>
+<ul>
 
-<div class="classroom">
+<li>Application Status : Running</li>
+<li>Build Status : SUCCESS</li>
+<li>Tests Passed : 100%</li>
+<li>Security Scan : PASSED</li>
+<li>Docker Image : Latest</li>
+<li>Kubernetes Pods : Healthy</li>
+<li>Availability : 99.99%</li>
+<li>Environment : Production</li>
 
-<%
-for(int i=1;i<=6;i++){
-%>
-
-<div class="student">
-
-<h3>👨‍🎓 Student <%=i%></h3>
-
-<p>Working on CI/CD Deployment</p>
-
-<div class="monitor">
-
-<div class="screen"></div>
-
-<div class="terminal">
-
-$ git push origin main <br>
-
-✔ Jenkins Build Success <br>
-
-✔ Maven Package <br>
-
-✔ Docker Image Built <br>
-
-✔ Push DockerHub <br>
-
-✔ Kubernetes Deploy <br>
-
-✔ Pipeline Complete 🚀
+</ul>
 
 </div>
 
@@ -297,44 +280,23 @@ $ git push origin main <br>
 
 </div>
 
-<%
-}
-%>
+<div class="footer">
 
-</div>
-
-<div class="badges">
-
-<div class="badge">AWS</div>
-
-<div class="badge">Docker</div>
-
-<div class="badge">Jenkins</div>
-
-<div class="badge">Kubernetes</div>
-
-<div class="badge">Terraform</div>
-
-<div class="badge">Ansible</div>
-
-</div>
-
-<footer>
-
-<h2>🚀 Cloud DevOps Academy</h2>
+<h2>DevOps Automation Demo</h2>
 
 <p>
 
-Current Time:
-<%= new java.util.Date() %>
+GitHub → Jenkins → Maven → SonarQube → Docker → Docker Hub → Kubernetes → AWS Production
 
 </p>
 
-<p style="margin-top:15px;">
-Learning • Building • Automating • Deploying
+<p>
+
+© 2026 Uber DevOps Automation Pipeline Demonstration
+
 </p>
 
-</footer>
+</div>
 
 </body>
 </html>
