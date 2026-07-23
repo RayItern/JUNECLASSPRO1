@@ -1,239 +1,349 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Uber DevOps CI/CD Pipeline</title>
+<title>Dollar Ride - Smart Transportation</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#020617);
-    color:white;
+
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+color:white;
+
 }
 
-.header{
-    background:#000;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 0 20px #00ff99;
+header{
+
+height:90px;
+background:#000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+box-shadow:0px 2px 10px rgba(0,0,0,.5);
+
 }
 
-.header h1{
-    color:#00ff99;
-    font-size:36px;
+.logo{
+
+font-size:65px;
+font-weight:bold;
+color:#00ff66;
+
 }
 
-.header h3{
-    color:#ffffff;
+.logo span{
+
+font-size:30px;
+margin-left:10px;
+color:white;
+
 }
 
-.container{
-    width:95%;
-    margin:auto;
-    margin-top:30px;
+nav a{
+
+text-decoration:none;
+color:white;
+margin-left:35px;
+font-size:18px;
+
 }
 
-.banner{
-    background:linear-gradient(90deg,#00c853,#00e676);
-    color:#000;
-    padding:25px;
-    border-radius:10px;
-    text-align:center;
-    margin-bottom:25px;
-    font-size:28px;
-    font-weight:bold;
+nav a:hover{
+
+color:#00ff66;
+
 }
 
-.pipeline{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:20px;
+.hero{
+
+display:flex;
+justify-content:space-around;
+align-items:center;
+padding:60px;
+
 }
 
-.stage{
-    background:#1e293b;
-    border-radius:12px;
-    padding:20px;
-    text-align:center;
-    transition:0.4s;
-    border:2px solid #00ff99;
+.left{
+
+width:45%;
+
 }
 
-.stage:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 20px #00ff99;
+.left h1{
+
+font-size:55px;
+margin-bottom:20px;
+
 }
 
-.icon{
-    font-size:55px;
-    margin-bottom:15px;
+.left p{
+
+font-size:20px;
+line-height:35px;
+
 }
 
-.status{
-    margin-top:15px;
-    color:#00ff99;
-    font-weight:bold;
-}
+.right{
 
-.bottom{
-    display:flex;
-    justify-content:space-between;
-    margin-top:40px;
-    gap:20px;
+width:420px;
+
 }
 
 .card{
-    flex:1;
-    background:#111827;
-    padding:25px;
-    border-radius:12px;
-    border-left:6px solid #00ff99;
+
+background:white;
+color:#333;
+padding:25px;
+margin-bottom:25px;
+border-radius:12px;
+box-shadow:0px 5px 20px rgba(0,0,0,.4);
+
 }
 
 .card h2{
-    color:#00ff99;
-    margin-bottom:15px;
+
+margin-bottom:20px;
+text-align:center;
+
 }
 
-.money{
-    font-size:170px;
-    text-align:center;
-    color:#FFD700;
-    text-shadow:0 0 20px gold;
-    animation:pulse 2s infinite;
+input{
+
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:16px;
+
 }
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.1);}
-    100%{transform:scale(1);}
+select{
+
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border-radius:6px;
+font-size:16px;
+
 }
 
-.footer{
-    text-align:center;
-    margin-top:40px;
-    padding:20px;
-    background:#000;
-    color:#00ff99;
-    font-weight:bold;
+button{
+
+width:100%;
+padding:14px;
+background:#00cc44;
+border:none;
+color:white;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+
 }
+
+button:hover{
+
+background:#009933;
+
+}
+
+footer{
+
+text-align:center;
+padding:25px;
+background:#000;
+margin-top:40px;
+
+}
+
+.features{
+
+display:flex;
+justify-content:center;
+gap:30px;
+padding:40px;
+
+}
+
+.box{
+
+width:260px;
+padding:30px;
+text-align:center;
+background:#111827;
+border-radius:12px;
+
+}
+
+.box h3{
+
+margin:15px 0;
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="header">
-    <h1>🚖 UBER DevOps Automation Dashboard</h1>
-    <h3>
-        Deployment Time:
-        <%= new java.text.SimpleDateFormat("dd MMM yyyy HH:mm:ss").format(new java.util.Date()) %>
-    </h3>
+<header>
+
+<div class="logo">
+$
+<span>Dollar Ride</span>
 </div>
 
-<div class="container">
+<nav>
 
-<div class="banner">
-    CI/CD Pipeline Successfully Deployed Uber Ride Booking Application
-</div>
+<a href="#">Home</a>
+<a href="#">Register</a>
+<a href="#">Login</a>
+<a href="#">Payment</a>
 
-<div class="pipeline">
+</nav>
 
-<div class="stage">
-<div class="icon">📂</div>
-<h2>GitHub</h2>
-<p>Source Code</p>
-<div class="status">SUCCESS</div>
-</div>
+</header>
 
-<div class="stage">
-<div class="icon">⚙️</div>
-<h2>Jenkins</h2>
-<p>CI Build</p>
-<div class="status">SUCCESS</div>
-</div>
+<div class="hero">
 
-<div class="stage">
-<div class="icon">🧪</div>
-<h2>Testing</h2>
-<p>JUnit / SonarQube</p>
-<div class="status">PASSED</div>
-</div>
+<div class="left">
 
-<div class="stage">
-<div class="icon">🐳</div>
-<h2>Docker</h2>
-<p>Container Build</p>
-<div class="status">IMAGE CREATED</div>
-</div>
+<h1>Book Your Ride Instantly</h1>
 
-<div class="stage">
-<div class="icon">☸️</div>
-<h2>Kubernetes</h2>
-<p>Rolling Deployment</p>
-<div class="status">RUNNING</div>
-</div>
+<p>
 
-<div class="stage">
-<div class="icon">☁️</div>
-<h2>AWS</h2>
-<p>Production</p>
-<div class="status">LIVE</div>
-</div>
+Safe rides.<br>
 
-</div>
+Affordable prices.<br>
 
-<div class="bottom">
+Cashless payment.<br>
 
-<div class="card">
-<h2>Automation Summary</h2>
+Fast driver matching.<br>
 
-<p>✔ Source Code: GitHub</p>
-<p>✔ Continuous Integration: Jenkins</p>
-<p>✔ Static Code Analysis: SonarQube</p>
-<p>✔ Unit Testing: Maven/JUnit</p>
-<p>✔ Containerization: Docker</p>
-<p>✔ Image Repository: Docker Hub / Amazon ECR</p>
-<p>✔ Deployment: Kubernetes (EKS)</p>
-<p>✔ Monitoring: Prometheus & Grafana</p>
-<p>✔ Notifications: Slack / Email</p>
+Available 24 Hours.
 
-</div>
-
-<div class="card">
-
-<h2>Business Value Generated</h2>
-
-<div class="money">$</div>
-
-<h2 style="text-align:center;color:#FFD700;">
-Revenue Driven by DevOps Automation
-</h2>
-
-<p style="text-align:center;margin-top:15px;">
-Faster Releases • Reduced Downtime • Increased Customer Satisfaction •
-Continuous Delivery • Higher Business Growth
 </p>
 
 </div>
 
+<div class="right">
+
+<div class="card">
+
+<h2>User Login</h2>
+
+<form>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<button>Login</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Registration</h2>
+
+<form>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email">
+
+<input type="text" placeholder="Phone Number">
+
+<input type="password" placeholder="Password">
+
+<button>Create Account</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Ride Payment</h2>
+
+<form>
+
+<input type="text" placeholder="Card Holder">
+
+<input type="text" placeholder="Card Number">
+
+<input type="text" placeholder="Expiry Date">
+
+<input type="text" placeholder="CVV">
+
+<select>
+
+<option>Visa</option>
+<option>MasterCard</option>
+<option>PayPal</option>
+
+</select>
+
+<button>Pay Now</button>
+
+</form>
+
+</div>
+
 </div>
 
 </div>
 
-<div class="footer">
-Powered by GitHub | Jenkins | Maven | SonarQube | Docker | Kubernetes | AWS | DevOps Automation
+<div class="features">
+
+<div class="box">
+
+<h3>🚗 Fast Pickup</h3>
+
+<p>Find nearby drivers within seconds.</p>
+
 </div>
+
+<div class="box">
+
+<h3>💳 Secure Payments</h3>
+
+<p>Safe online payment with encrypted processing.</p>
+
+</div>
+
+<div class="box">
+
+<h3>⭐ Top Rated Drivers</h3>
+
+<p>Ride with trusted and verified professionals.</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<h3>Dollar Ride © 2026</h3>
+
+<p>Fast • Safe • Reliable Transportation</p>
+
+</footer>
 
 </body>
 </html>
