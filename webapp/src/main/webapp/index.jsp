@@ -1,247 +1,168 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RideNow - Smart Ride Booking</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#f4f4f4;
+    background:linear-gradient(135deg,#0057D9 50%, #D90429 50%);
+    color:white;
 }
 
 /* Navigation */
-
 nav{
-background:#111;
-color:white;
-display:flex;
-justify-content:space-between;
-padding:18px 60px;
-align-items:center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    background:rgba(0,0,0,0.15);
 }
 
 .logo{
-font-size:28px;
-font-weight:bold;
-color:#00d084;
+    font-size:32px;
+    font-weight:bold;
+    color:#fff;
 }
 
 nav ul{
-display:flex;
-list-style:none;
+    display:flex;
+    list-style:none;
 }
 
 nav ul li{
-margin-left:30px;
+    margin-left:30px;
 }
 
 nav ul li a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
 }
 
 nav ul li a:hover{
-color:#00d084;
+    color:yellow;
 }
 
 /* Hero */
-
 .hero{
-height:90vh;
-background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:90vh;
+    padding:60px 80px;
 }
 
-.overlay{
-
-background:rgba(0,0,0,.6);
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-
+.left{
+    width:50%;
 }
 
-.hero-content{
-
-text-align:center;
-color:white;
-
+.left h1{
+    font-size:60px;
+    margin-bottom:20px;
 }
 
-.hero-content h1{
-
-font-size:60px;
-margin-bottom:20px;
-
+.left p{
+    font-size:22px;
+    line-height:35px;
+    margin-bottom:30px;
 }
 
-.hero-content p{
-
-font-size:22px;
-margin-bottom:30px;
-
+.btn{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#0057D9;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.hero-content button{
-
-padding:15px 35px;
-font-size:18px;
-background:#00d084;
-color:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
-transition:.4s;
-
+.btn:hover{
+    background:#D90429;
+    color:white;
 }
 
-.hero-content button:hover{
-
-background:#ff9800;
-
+/* Ride Booking Card */
+.booking-card{
+    width:420px;
+    background:white;
+    color:#333;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0px 8px 25px rgba(0,0,0,.3);
 }
 
-/* Cards */
+.booking-card h2{
+    text-align:center;
+    color:#0057D9;
+    margin-bottom:20px;
+}
 
-.container{
+.booking-card input,
+.booking-card select{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
 
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-padding:60px;
+.book-btn{
+    width:100%;
+    padding:15px;
+    background:#D90429;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
 
+.book-btn:hover{
+    background:#0057D9;
+}
+
+/* Services */
+.services{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:60px;
 }
 
 .card{
-
-width:350px;
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.2);
-transition:.4s;
-
+    width:300px;
+    background:white;
+    color:#333;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
 }
 
-.card:hover{
-
-transform:translateY(-10px);
-
+.card h3{
+    color:#0057D9;
+    margin-bottom:15px;
 }
-
-.card h2{
-
-text-align:center;
-margin-bottom:20px;
-color:#333;
-
-}
-
-input, select{
-
-width:100%;
-padding:12px;
-margin-top:10px;
-margin-bottom:20px;
-border-radius:8px;
-border:1px solid #ddd;
-
-}
-
-button{
-
-width:100%;
-padding:12px;
-background:#00b894;
-color:white;
-border:none;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#ff9800;
-
-}
-
-/* Features */
-
-.features{
-
-background:linear-gradient(45deg,#00b894,#0984e3);
-padding:70px;
-color:white;
-text-align:center;
-
-}
-
-.feature-box{
-
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:40px;
-margin-top:40px;
-
-}
-
-.feature{
-
-width:250px;
-
-}
-
-.feature i{
-
-font-size:55px;
-margin-bottom:20px;
-
-}
-
-.feature h3{
-
-margin-bottom:15px;
-
-}
-
-/* Footer */
 
 footer{
-
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:50px;
-
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,.2);
+    font-size:16px;
 }
-
 </style>
 
 </head>
@@ -249,92 +170,36 @@ margin-top:50px;
 <body>
 
 <nav>
+    <div class="logo">RideNow</div>
 
-<div class="logo">
-<i class="fa-solid fa-car-side"></i> RideNow
-</div>
-
-<ul>
-
-<li><a href="#">Home</a></li>
-<li><a href="#">Book Ride</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Pricing</a></li>
-<li><a href="#">Contact</a></li>
-
-</ul>
-
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Book Ride</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Login</a></li>
+    </ul>
 </nav>
-
 
 <section class="hero">
 
-<div class="overlay">
+<div class="left">
+    <h1>Go Anywhere.</h1>
+    <h1>Anytime.</h1>
 
-<div class="hero-content">
+    <p>
+        Fast, secure and affordable rides at your fingertips.
+        Book your trip within seconds and enjoy a comfortable
+        travel experience.
+    </p>
 
-<h1>Your Ride, Anytime.</h1>
-
-<p>Fast • Affordable • Safe Transportation</p>
-
-<button>Book a Ride</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<div class="container">
-
-<!-- Login -->
-
-<div class="card">
-
-<h2><i class="fa-solid fa-user"></i> Login</h2>
-
-<form>
-
-<input type="email" placeholder="Email">
-
-<input type="password" placeholder="Password">
-
-<button>Login</button>
-
-</form>
+    <button class="btn">Explore More</button>
 
 </div>
 
+<div class="booking-card">
 
-<!-- Register -->
-
-<div class="card">
-
-<h2><i class="fa-solid fa-user-plus"></i> Register</h2>
-
-<form>
-
-<input type="text" placeholder="Full Name">
-
-<input type="email" placeholder="Email">
-
-<input type="password" placeholder="Password">
-
-<input type="text" placeholder="Phone Number">
-
-<button>Create Account</button>
-
-</form>
-
-</div>
-
-
-<!-- Ride Booking -->
-
-<div class="card">
-
-<h2><i class="fa-solid fa-location-dot"></i> Book Ride</h2>
+<h2>Book Your Ride</h2>
 
 <form>
 
@@ -342,119 +207,47 @@ margin-top:50px;
 
 <input type="text" placeholder="Destination">
 
+<input type="datetime-local">
+
 <select>
-
-<option>Economy</option>
-
-<option>Premium</option>
-
-<option>SUV</option>
-
-<option>Luxury</option>
-
+    <option>Select Vehicle</option>
+    <option>Economy</option>
+    <option>Premium</option>
+    <option>SUV</option>
 </select>
 
-<button>Find Driver</button>
+<button class="book-btn">
+Book Ride
+</button>
 
 </form>
-
-</div>
-
-
-<!-- Payment -->
-
-<div class="card">
-
-<h2><i class="fa-solid fa-credit-card"></i> Payment</h2>
-
-<form>
-
-<input type="text" placeholder="Card Holder">
-
-<input type="text" placeholder="Card Number">
-
-<input type="text" placeholder="Expiry Date">
-
-<input type="password" placeholder="CVV">
-
-<button>Pay Now</button>
-
-</form>
-
-</div>
-
-</div>
-
-
-<section class="features">
-
-<h1>Why Choose RideNow?</h1>
-
-<div class="feature-box">
-
-<div class="feature">
-
-<i class="fa-solid fa-clock"></i>
-
-<h3>Fast Pickup</h3>
-
-<p>Drivers arrive within minutes.</p>
-
-</div>
-
-
-<div class="feature">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<h3>Safe Journey</h3>
-
-<p>Verified drivers with GPS tracking.</p>
-
-</div>
-
-
-<div class="feature">
-
-<i class="fa-solid fa-wallet"></i>
-
-<h3>Affordable Prices</h3>
-
-<p>Transparent pricing with no hidden charges.</p>
-
-</div>
-
-
-<div class="feature">
-
-<i class="fa-solid fa-headset"></i>
-
-<h3>24/7 Support</h3>
-
-<p>Customer support available around the clock.</p>
-
-</div>
 
 </div>
 
 </section>
 
+<section class="services">
+
+<div class="card">
+<h3>Fast Pickup</h3>
+<p>Get matched with nearby drivers in just a few seconds.</p>
+</div>
+
+<div class="card">
+<h3>Affordable Pricing</h3>
+<p>Transparent pricing with no hidden charges.</p>
+</div>
+
+<div class="card">
+<h3>Safe Journey</h3>
+<p>Professional drivers and real-time trip tracking.</p>
+</div>
+
+</section>
 
 <footer>
 
-<h3>RideNow</h3>
-
-<p>© 2026 RideNow. All Rights Reserved.</p>
-
-<p>
-<i class="fab fa-facebook"></i>
-&nbsp;&nbsp;
-<i class="fab fa-instagram"></i>
-&nbsp;&nbsp;
-<i class="fab fa-twitter"></i>
-&nbsp;&nbsp;
-<i class="fab fa-linkedin"></i>
-</p>
+© 2026 RideNow | Your Trusted Ride Partner
 
 </footer>
 
