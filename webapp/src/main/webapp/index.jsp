@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dollar Ride - Smart Transportation</title>
+<title>RideNow - Smart Ride Booking</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
@@ -13,183 +16,229 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI,Arial,sans-serif;
+font-family:Segoe UI, sans-serif;
 }
 
 body{
-
-background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
-color:white;
-
+background:#f4f4f4;
 }
 
-header{
+/* Navigation */
 
-height:90px;
-background:#000;
+nav{
+background:#111;
+color:white;
 display:flex;
 justify-content:space-between;
+padding:18px 60px;
 align-items:center;
-padding:0 60px;
-box-shadow:0px 2px 10px rgba(0,0,0,.5);
-
 }
 
 .logo{
-
-font-size:65px;
+font-size:28px;
 font-weight:bold;
-color:#00ff66;
-
+color:#00d084;
 }
 
-.logo span{
+nav ul{
+display:flex;
+list-style:none;
+}
 
-font-size:30px;
-margin-left:10px;
+nav ul li{
+margin-left:30px;
+}
+
+nav ul li a{
 color:white;
-
-}
-
-nav a{
-
 text-decoration:none;
-color:white;
-margin-left:35px;
-font-size:18px;
-
+font-weight:bold;
+transition:.3s;
 }
 
-nav a:hover{
-
-color:#00ff66;
-
+nav ul li a:hover{
+color:#00d084;
 }
+
+/* Hero */
 
 .hero{
-
+height:90vh;
+background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
 display:flex;
-justify-content:space-around;
 align-items:center;
-padding:60px;
+justify-content:center;
+}
+
+.overlay{
+
+background:rgba(0,0,0,.6);
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
 
 }
 
-.left{
+.hero-content{
 
-width:45%;
+text-align:center;
+color:white;
 
 }
 
-.left h1{
+.hero-content h1{
 
-font-size:55px;
+font-size:60px;
 margin-bottom:20px;
 
 }
 
-.left p{
+.hero-content p{
 
-font-size:20px;
-line-height:35px;
+font-size:22px;
+margin-bottom:30px;
 
 }
 
-.right{
+.hero-content button{
 
-width:420px;
+padding:15px 35px;
+font-size:18px;
+background:#00d084;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:.4s;
+
+}
+
+.hero-content button:hover{
+
+background:#ff9800;
+
+}
+
+/* Cards */
+
+.container{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+padding:60px;
 
 }
 
 .card{
 
+width:350px;
 background:white;
-color:#333;
-padding:25px;
-margin-bottom:25px;
-border-radius:12px;
-box-shadow:0px 5px 20px rgba(0,0,0,.4);
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
 
 }
 
 .card h2{
 
-margin-bottom:20px;
 text-align:center;
+margin-bottom:20px;
+color:#333;
 
 }
 
-input{
+input, select{
 
 width:100%;
-padding:14px;
-margin-bottom:15px;
-border-radius:6px;
-border:1px solid #ccc;
-font-size:16px;
-
-}
-
-select{
-
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border-radius:6px;
-font-size:16px;
+padding:12px;
+margin-top:10px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ddd;
 
 }
 
 button{
 
 width:100%;
-padding:14px;
-background:#00cc44;
-border:none;
+padding:12px;
+background:#00b894;
 color:white;
-font-size:18px;
-border-radius:6px;
+border:none;
+border-radius:8px;
+font-size:16px;
 cursor:pointer;
 
 }
 
 button:hover{
 
-background:#009933;
+background:#ff9800;
 
 }
 
-footer{
+/* Features */
 
+.features{
+
+background:linear-gradient(45deg,#00b894,#0984e3);
+padding:70px;
+color:white;
 text-align:center;
-padding:25px;
-background:#000;
+
+}
+
+.feature-box{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
 margin-top:40px;
 
 }
 
-.features{
+.feature{
 
-display:flex;
-justify-content:center;
-gap:30px;
-padding:40px;
+width:250px;
 
 }
 
-.box{
+.feature i{
 
-width:260px;
-padding:30px;
+font-size:55px;
+margin-bottom:20px;
+
+}
+
+.feature h3{
+
+margin-bottom:15px;
+
+}
+
+/* Footer */
+
+footer{
+
+background:#111;
+color:white;
 text-align:center;
-background:#111827;
-border-radius:12px;
-
-}
-
-.box h3{
-
-margin:15px 0;
+padding:30px;
+margin-top:50px;
 
 }
 
@@ -199,55 +248,55 @@ margin:15px 0;
 
 <body>
 
-<header>
-
-<div class="logo">
-$
-<span>Dollar Ride</span>
-</div>
-
 <nav>
 
-<a href="#">Home</a>
-<a href="#">Register</a>
-<a href="#">Login</a>
-<a href="#">Payment</a>
+<div class="logo">
+<i class="fa-solid fa-car-side"></i> RideNow
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">Book Ride</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Pricing</a></li>
+<li><a href="#">Contact</a></li>
+
+</ul>
 
 </nav>
 
-</header>
 
-<div class="hero">
+<section class="hero">
 
-<div class="left">
+<div class="overlay">
 
-<h1>Book Your Ride Instantly</h1>
+<div class="hero-content">
 
-<p>
+<h1>Your Ride, Anytime.</h1>
 
-Safe rides.<br>
+<p>Fast • Affordable • Safe Transportation</p>
 
-Affordable prices.<br>
-
-Cashless payment.<br>
-
-Fast driver matching.<br>
-
-Available 24 Hours.
-
-</p>
+<button>Book a Ride</button>
 
 </div>
 
-<div class="right">
+</div>
+
+</section>
+
+
+<div class="container">
+
+<!-- Login -->
 
 <div class="card">
 
-<h2>User Login</h2>
+<h2><i class="fa-solid fa-user"></i> Login</h2>
 
 <form>
 
-<input type="text" placeholder="Username">
+<input type="email" placeholder="Email">
 
 <input type="password" placeholder="Password">
 
@@ -257,9 +306,12 @@ Available 24 Hours.
 
 </div>
 
+
+<!-- Register -->
+
 <div class="card">
 
-<h2>Registration</h2>
+<h2><i class="fa-solid fa-user-plus"></i> Register</h2>
 
 <form>
 
@@ -267,9 +319,9 @@ Available 24 Hours.
 
 <input type="email" placeholder="Email">
 
-<input type="text" placeholder="Phone Number">
-
 <input type="password" placeholder="Password">
+
+<input type="text" placeholder="Phone Number">
 
 <button>Create Account</button>
 
@@ -277,9 +329,43 @@ Available 24 Hours.
 
 </div>
 
+
+<!-- Ride Booking -->
+
 <div class="card">
 
-<h2>Ride Payment</h2>
+<h2><i class="fa-solid fa-location-dot"></i> Book Ride</h2>
+
+<form>
+
+<input type="text" placeholder="Pickup Location">
+
+<input type="text" placeholder="Destination">
+
+<select>
+
+<option>Economy</option>
+
+<option>Premium</option>
+
+<option>SUV</option>
+
+<option>Luxury</option>
+
+</select>
+
+<button>Find Driver</button>
+
+</form>
+
+</div>
+
+
+<!-- Payment -->
+
+<div class="card">
+
+<h2><i class="fa-solid fa-credit-card"></i> Payment</h2>
 
 <form>
 
@@ -289,15 +375,7 @@ Available 24 Hours.
 
 <input type="text" placeholder="Expiry Date">
 
-<input type="text" placeholder="CVV">
-
-<select>
-
-<option>Visa</option>
-<option>MasterCard</option>
-<option>PayPal</option>
-
-</select>
+<input type="password" placeholder="CVV">
 
 <button>Pay Now</button>
 
@@ -307,41 +385,76 @@ Available 24 Hours.
 
 </div>
 
-</div>
 
-<div class="features">
+<section class="features">
 
-<div class="box">
+<h1>Why Choose RideNow?</h1>
 
-<h3>🚗 Fast Pickup</h3>
+<div class="feature-box">
 
-<p>Find nearby drivers within seconds.</p>
+<div class="feature">
 
-</div>
+<i class="fa-solid fa-clock"></i>
 
-<div class="box">
+<h3>Fast Pickup</h3>
 
-<h3>💳 Secure Payments</h3>
-
-<p>Safe online payment with encrypted processing.</p>
+<p>Drivers arrive within minutes.</p>
 
 </div>
 
-<div class="box">
 
-<h3>⭐ Top Rated Drivers</h3>
+<div class="feature">
 
-<p>Ride with trusted and verified professionals.</p>
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Safe Journey</h3>
+
+<p>Verified drivers with GPS tracking.</p>
+
+</div>
+
+
+<div class="feature">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>Affordable Prices</h3>
+
+<p>Transparent pricing with no hidden charges.</p>
+
+</div>
+
+
+<div class="feature">
+
+<i class="fa-solid fa-headset"></i>
+
+<h3>24/7 Support</h3>
+
+<p>Customer support available around the clock.</p>
 
 </div>
 
 </div>
+
+</section>
+
 
 <footer>
 
-<h3>Dollar Ride © 2026</h3>
+<h3>RideNow</h3>
 
-<p>Fast • Safe • Reliable Transportation</p>
+<p>© 2026 RideNow. All Rights Reserved.</p>
+
+<p>
+<i class="fab fa-facebook"></i>
+&nbsp;&nbsp;
+<i class="fab fa-instagram"></i>
+&nbsp;&nbsp;
+<i class="fab fa-twitter"></i>
+&nbsp;&nbsp;
+<i class="fab fa-linkedin"></i>
+</p>
 
 </footer>
 
