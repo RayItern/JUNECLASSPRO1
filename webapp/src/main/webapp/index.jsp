@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Femi Airline - Fly Beyond Expectations</title>
 
 <style>
@@ -17,233 +16,207 @@
 
 body{
     background:#f4f7fb;
-    color:#333;
+    color:#222;
 }
 
+/* Header */
 header{
-    background:linear-gradient(to right,#003366,#0066cc);
+    background:#0A2A66;
     color:white;
-    padding:20px 60px;
+    padding:18px 80px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
 .logo{
-    font-size:32px;
+    font-size:30px;
     font-weight:bold;
-}
-
-.logo span{
-    color:#FFD700;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     margin-left:25px;
-    font-weight:bold;
+    font-size:17px;
 }
 
 nav a:hover{
-    color:#FFD700;
+    color:#4DD0E1;
 }
 
+/* Hero */
 .hero{
-    height:600px;
-    background:url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80") center center/cover;
+    background:linear-gradient(rgba(10,42,102,.75), rgba(10,42,102,.75)),
+    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    height:90vh;
     display:flex;
     justify-content:center;
     align-items:center;
-}
-
-.hero-content{
-    background:rgba(0,0,0,0.6);
-    padding:40px;
-    border-radius:12px;
     text-align:center;
     color:white;
 }
 
-.hero-content h1{
-    font-size:50px;
-    margin-bottom:20px;
+.hero h1{
+    font-size:58px;
+    margin-bottom:15px;
 }
 
-.hero-content p{
-    font-size:20px;
+.hero p{
+    font-size:22px;
     margin-bottom:30px;
 }
 
 .btn{
-    background:#FFD700;
-    color:#003366;
+    background:#0077B6;
+    color:white;
     padding:15px 35px;
     text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
+    border-radius:30px;
+    font-size:18px;
+    transition:.4s;
 }
 
-.search-box{
+.btn:hover{
+    background:#0096C7;
+}
+
+/* Booking */
+.booking{
     width:90%;
-    max-width:1000px;
     margin:-60px auto 40px;
     background:white;
-    padding:30px;
     border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    padding:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-.search-box h2{
+.booking h2{
+    color:#0A2A66;
     margin-bottom:20px;
-    color:#003366;
 }
 
 form{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
 }
 
-input, select{
-    padding:12px;
+input,select{
+    padding:13px;
     border:1px solid #ccc;
     border-radius:6px;
 }
 
 button{
-    grid-column:span 3;
-    background:#003366;
+    background:#0A2A66;
     color:white;
     border:none;
-    padding:15px;
-    font-size:18px;
     border-radius:6px;
     cursor:pointer;
+    font-size:16px;
 }
 
 button:hover{
-    background:#0055aa;
+    background:#0077B6;
 }
 
-.section{
-    padding:60px;
-}
-
-.section h2{
+/* Destinations */
+.section-title{
     text-align:center;
-    margin-bottom:40px;
-    color:#003366;
+    margin-top:50px;
+    color:#0A2A66;
+    font-size:35px;
 }
 
 .cards{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-    justify-content:center;
+    width:90%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
 .card{
-    width:300px;
     background:white;
     border-radius:10px;
     overflow:hidden;
-    box-shadow:0 5px 10px rgba(0,0,0,.15);
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
 }
 
 .card img{
     width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
 }
 
-.card-body{
-    padding:20px;
+.card h3{
+    color:#0A2A66;
+    padding:15px;
 }
 
-.card-body h3{
-    color:#003366;
-    margin-bottom:10px;
+.card p{
+    padding:0 15px 20px;
+    color:#555;
 }
 
-.services{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.service{
-    background:white;
-    width:250px;
-    text-align:center;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-}
-
+/* Footer */
 footer{
-    background:#003366;
+    background:#0A2A66;
     color:white;
     text-align:center;
     padding:25px;
+    margin-top:50px;
 }
 </style>
 
 </head>
+
 <body>
 
 <header>
+    <div class="logo">✈ Femi Airline</div>
 
-<div class="logo">
-Femi <span>Airline</span>
-</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Book Flight</a>
-<a href="#">Destinations</a>
-<a href="#">Offers</a>
-<a href="#">Contact</a>
-</nav>
-
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Book Flight</a>
+        <a href="#">Destinations</a>
+        <a href="#">Offers</a>
+        <a href="#">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
+    <div>
+        <h1>Welcome to Femi Airline</h1>
+        <p>Experience Comfort, Luxury & Safe Travels Around the World.</p>
 
-<div class="hero-content">
-<h1>Welcome to Femi Airline</h1>
-<p>Experience Comfort, Luxury and Safe Travel Around the World.</p>
-<a href="#" class="btn">Book Your Flight</a>
-</div>
-
+        <a href="#" class="btn">Book Your Flight</a>
+    </div>
 </section>
 
-<div class="search-box">
+<div class="booking">
 
-<h2>Search Flights</h2>
+<h2>Flight Search</h2>
 
-<form action="searchFlights.jsp" method="post">
+<form>
 
-<input type="text" name="departure" placeholder="Departure City" required>
+<input type="text" placeholder="Departure City">
 
-<input type="text" name="destination" placeholder="Destination City" required>
+<input type="text" placeholder="Destination">
 
-<input type="date" name="departureDate" required>
+<input type="date">
 
-<input type="date" name="returnDate">
-
-<select name="passengers">
-<option>1 Passenger</option>
-<option>2 Passengers</option>
-<option>3 Passengers</option>
-<option>4 Passengers</option>
-<option>5 Passengers</option>
-</select>
-
-<select name="classType">
-<option>Economy Class</option>
-<option>Business Class</option>
+<select>
+<option>Economy</option>
+<option>Business</option>
 <option>First Class</option>
 </select>
 
@@ -253,79 +226,37 @@ Femi <span>Airline</span>
 
 </div>
 
-<section class="section">
-
-<h2>Popular Destinations</h2>
+<h2 class="section-title">Popular Destinations</h2>
 
 <div class="cards">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=800&q=80">
-<div class="card-body">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80">
+<h3>Maldives</h3>
+<p>Crystal-clear waters and unforgettable luxury vacations.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80">
+<h3>New York</h3>
+<p>Discover the city that never sleeps with affordable fares.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80">
 <h3>Paris</h3>
-<p>Discover the city of love with exclusive Femi Airline offers.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1526481280695-3c4691f2b53c?auto=format&fit=crop&w=800&q=80">
-<div class="card-body">
-<h3>Dubai</h3>
-<p>Fly to the world's luxury destination at affordable prices.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=800&q=80">
-<div class="card-body">
-<h3>London</h3>
-<p>Travel comfortably with our premium international service.</p>
-</div>
+<p>Travel in style to the city of love and timeless beauty.</p>
 </div>
 
 </div>
-
-</section>
-
-<section class="section">
-
-<h2>Why Choose Femi Airline?</h2>
-
-<div class="services">
-
-<div class="service">
-<h3>✈ Modern Fleet</h3>
-<p>Newest aircraft equipped with world-class comfort.</p>
-</div>
-
-<div class="service">
-<h3>🛡 Safety First</h3>
-<p>Your safety is our highest priority on every flight.</p>
-</div>
-
-<div class="service">
-<h3>💺 Luxury Seating</h3>
-<p>Relax with spacious seats and premium onboard service.</p>
-</div>
-
-<div class="service">
-<h3>🌍 Worldwide Routes</h3>
-<p>Connecting major cities across Africa, Europe, Asia and America.</p>
-</div>
-
-</div>
-
-</section>
 
 <footer>
 
-<p>
-&copy; <%= java.time.Year.now().getValue() %> Femi Airline. All Rights Reserved.
-</p>
+<h3>Femi Airline</h3>
 
-<p>
-Fly Beyond Expectations.
-</p>
+<p>Fly Beyond Expectations</p>
+
+<p>© <%= java.time.Year.now() %> Femi Airline. All Rights Reserved.</p>
 
 </footer>
 
