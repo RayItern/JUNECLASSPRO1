@@ -518,7 +518,7 @@
         </h1>
 
         <p>
-            A vibrant American university committed to innovation,
+            A Smart American university committed to innovation,
             academic excellence, leadership, and preparing students
             for a changing world.
         </p>
